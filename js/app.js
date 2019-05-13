@@ -23,6 +23,9 @@ const aiY = 200;
 const lineWidth = 6;
 const lineHeight = 16;
 
+let ballSpeedX = 1;
+let ballSpeedY = -1;
+
 const player = () => {
     ctx.fillStyle = 'green';
     ctx.fillRect(playerX, playerY, paddleWidth, paddleHeight);
@@ -45,9 +48,21 @@ const table = () => {
 const ball = () => {
     ctx.fillStyle = "white";
     ctx.fillRect(ballX, ballY, ballSize, ballSize);
+
+    if (ballY >= ch - ballSize) {
+        ballSpeedY = -1;
+    } else if (ballY <= 0) {
+        ballSpeedY = 1;
+    }
+    ballX += ballSpeedX;
+    ballY += ballSpeedY;
 }
 
-table();
-ball();
-player();
-ai();
+const game = () => {
+    table();
+    ball();
+    player();
+    ai();
+}
+
+setInterval(game, 25);
