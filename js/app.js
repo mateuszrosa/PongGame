@@ -11,14 +11,14 @@ const ballSize = 20;
 let ballX = cw / 2 - ballSize / 2;
 let ballY = ch / 2 - ballSize / 2;
 
-const paddleWidth = 20;
-const paddleHeight = 100;
+const paddelWidth = 20;
+const paddelHeight = 100;
 
 const playerX = 70;
 const aiX = 910;
 
 let playerY = 200;
-const aiY = 200;
+let aiY = 200;
 
 const lineWidth = 6;
 const lineHeight = 16;
@@ -28,12 +28,12 @@ let ballSpeedY = 3;
 
 const player = () => {
     ctx.fillStyle = 'green';
-    ctx.fillRect(playerX, playerY, paddleWidth, paddleHeight);
+    ctx.fillRect(playerX, playerY, paddelWidth, paddelHeight);
 }
 
 const ai = () => {
     ctx.fillStyle = 'green';
-    ctx.fillRect(aiX, aiY, paddleWidth, paddleHeight);
+    ctx.fillRect(aiX, aiY, paddelWidth, paddelHeight);
 }
 
 const table = () => {
@@ -65,15 +65,38 @@ const ball = () => {
 topCanvas = canvas.offsetTop;
 
 const playerPosition = event => {
-    playerY = event.clientY - topCanvas - paddleHeight / 2;
+    playerY = event.clientY - topCanvas - paddelHeight / 2;
 
     if (playerY <= 0) {
         playerY = 0;
     }
-    if (playerY >= ch - paddleHeight) {
-        playerY = ch - paddleHeight;
+    if (playerY >= ch - paddelHeight) {
+        playerY = ch - paddelHeight;
     }
-    console.log('work');
+}
+
+const aiPosition = () => {
+    const middleBall = ballY + ballSize / 2;
+    const middlePaddel = aiY + paddelHeight / 2;
+
+    if (ballX > 500) {
+        if (middlePaddel - middleBall > 200) {
+            aiY -= 30;
+        } else if (middlePaddel - middleBall > 50) {
+            aiY -= 15;
+        }
+        if (middlePaddel - middleBall < -200) {
+            aiY += 30;
+        } else if (middlePaddel - middleBall < -50) {
+            aiY += 15;
+        }
+    } else if (ballX <= 500 && ballX > 100) {
+        if (middlePaddel - middleBall > 100) {
+            aiY -= 3;
+        } else if (middlePaddel - middleBall < -100) {
+            aiY += 3;
+        }
+    }
 }
 
 canvas.addEventListener('mousemove', playerPosition);
@@ -91,6 +114,7 @@ const game = () => {
     ball();
     player();
     ai();
+    aiPosition();
 }
 
 setInterval(game, 10);
