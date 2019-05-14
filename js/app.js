@@ -17,7 +17,7 @@ const paddleHeight = 100;
 const playerX = 70;
 const aiX = 910;
 
-const playerY = 200;
+let playerY = 200;
 const aiY = 200;
 
 const lineWidth = 6;
@@ -59,6 +59,14 @@ const ball = () => {
         ballSpeedX = -ballSpeedX;
     }
 }
+
+topCanvas = canvas.offsetTop;
+
+const playerPosition = event => {
+    playerY = event.clientY - topCanvas;
+}
+
+canvas.addEventListener('mousemove', playerPosition);
 
 const game = () => {
     table();
