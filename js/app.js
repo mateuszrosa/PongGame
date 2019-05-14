@@ -23,8 +23,8 @@ const aiY = 200;
 const lineWidth = 6;
 const lineHeight = 16;
 
-let ballSpeedX = 1;
-let ballSpeedY = 1;
+let ballSpeedX = 3;
+let ballSpeedY = 3;
 
 const player = () => {
     ctx.fillStyle = 'green';
@@ -54,9 +54,11 @@ const ball = () => {
 
     if (ballY >= ch - ballSize || ballY <= 0) {
         ballSpeedY = -ballSpeedY;
+        speedUp();
     }
     if (ballX >= cw - ballSize || ballX <= 0) {
         ballSpeedX = -ballSpeedX;
+        speedUp();
     }
 }
 
@@ -75,6 +77,14 @@ const playerPosition = event => {
 }
 
 canvas.addEventListener('mousemove', playerPosition);
+
+const speedUp = () => {
+    if (ballSpeedX > 0 && ballSpeedX < 16) {
+        ballSpeedX += .2;
+    } else if (ballSpeedY < 0 && ballSpeedY > -16) {
+        ballSpeedY -= .2;
+    }
+}
 
 const game = () => {
     table();
