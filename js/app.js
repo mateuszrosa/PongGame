@@ -63,7 +63,7 @@ const ball = () => {
 topCanvas = canvas.offsetTop;
 
 const playerPosition = event => {
-    playerY = event.clientY - topCanvas;
+    playerY = event.clientY - topCanvas - paddleHeight / 2;
 }
 
 canvas.addEventListener('mousemove', playerPosition);
