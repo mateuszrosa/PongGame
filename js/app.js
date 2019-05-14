@@ -64,6 +64,14 @@ topCanvas = canvas.offsetTop;
 
 const playerPosition = event => {
     playerY = event.clientY - topCanvas - paddleHeight / 2;
+
+    if (playerY <= 0) {
+        playerY = 0;
+    }
+    if (playerY >= ch - paddleHeight) {
+        playerY = ch - paddleHeight;
+    }
+    console.log('work');
 }
 
 canvas.addEventListener('mousemove', playerPosition);
