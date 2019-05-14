@@ -60,6 +60,18 @@ const ball = () => {
         ballSpeedX = -ballSpeedX;
         speedUp();
     }
+    if (ballX <= playerX + ballSize) {
+        if (ballY >= playerY && ballY <= playerY + paddelHeight) {
+            ballSpeedX = -ballSpeedX;
+            speedUp();
+        }
+    }
+    if (ballX >= aiX - paddelWidth) {
+        if (ballY >= aiY && ballY <= aiY + paddelHeight) {
+            ballSpeedX = -ballSpeedX;
+            speedUp();
+        }
+    }
 }
 
 topCanvas = canvas.offsetTop;
@@ -115,6 +127,7 @@ const game = () => {
     player();
     ai();
     aiPosition();
+    return;
 }
 
 setInterval(game, 10);
