@@ -159,8 +159,10 @@ let play = setInterval(game, 10);
 
 btn.addEventListener('click', function() {
     clearInterval(play);
+    btn1.style.display = 'block';
 })
 
 btn1.addEventListener('click', function() {
     play = setInterval(game, 10);
+    btn1.style.display = 'none';
 })
