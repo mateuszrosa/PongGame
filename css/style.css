@@ -5,6 +5,8 @@ body {
     align-items: center;
     justify-content: center;
     background-color: darkgray;
+    flex-direction: column;
+    font-family: sans-serif;
 }
 
 canvas {

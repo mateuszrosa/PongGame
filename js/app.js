@@ -26,6 +26,14 @@ const lineHeight = 16;
 let ballSpeedX = 3;
 let ballSpeedY = 3;
 
+let numPlayer = 0;
+let numAI = 0;
+
+const spanPlayer = document.querySelector('span.player');
+const spanAI = document.querySelector('span.ai');
+spanPlayer.textContent = numPlayer;
+spanAI.textContent = numAI;
+
 const player = () => {
     ctx.fillStyle = 'green';
     ctx.fillRect(playerX, playerY, paddelWidth, paddelHeight);
@@ -54,22 +62,18 @@ const ball = () => {
 
     if (ballY >= ch - ballSize || ballY <= 0) {
         ballSpeedY = -ballSpeedY;
-        speedUp();
     }
     if (ballX >= cw - ballSize || ballX <= 0) {
-        ballSpeedX = -ballSpeedX;
-        speedUp();
+        fail();
     }
     if (ballX <= playerX + ballSize) {
         if (ballY >= playerY && ballY <= playerY + paddelHeight) {
             ballSpeedX = -ballSpeedX;
-            speedUp();
         }
     }
     if (ballX >= aiX - paddelWidth) {
         if (ballY >= aiY && ballY <= aiY + paddelHeight) {
             ballSpeedX = -ballSpeedX;
-            speedUp();
         }
     }
 }
@@ -121,6 +125,20 @@ const speedUp = () => {
     }
 }
 
+const fail = () => {
+    setTimeout(function() {
+        if (ballX <= 0) {
+            spanAI.textContent = `${++numAI}`;
+        } else if (ballX >= cw - ballSize) {
+            spanPlayer.textContent = `${++numPlayer}`;
+        }
+        ballX = cw / 2 - ballSize / 2;
+        ballY = ch / 2 - ballSize / 2;
+        playerY = 200;
+        aiY = 200;
+    }, 500)
+}
+
 const game = () => {
     table();
     ball();
@@ -130,4 +148,4 @@ const game = () => {
     return;
 }
 
-setInterval(game, 10);
+const play = setInterval(game, 10);
