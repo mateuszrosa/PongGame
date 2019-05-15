@@ -34,6 +34,9 @@ const spanAI = document.querySelector('span.ai');
 spanPlayer.textContent = numPlayer;
 spanAI.textContent = numAI;
 
+const btn = document.querySelector("button");
+const btn1 = document.querySelector("body > button:nth-child(4)")
+
 const player = () => {
     ctx.fillStyle = 'green';
     ctx.fillRect(playerX, playerY, paddelWidth, paddelHeight);
@@ -97,14 +100,14 @@ const aiPosition = () => {
 
     if (ballX > 500) {
         if (middlePaddel - middleBall > 200) {
-            aiY -= 30;
+            aiY -= 20;
         } else if (middlePaddel - middleBall > 50) {
-            aiY -= 15;
+            aiY -= 10;
         }
         if (middlePaddel - middleBall < -200) {
-            aiY += 30;
+            aiY += 20;
         } else if (middlePaddel - middleBall < -50) {
-            aiY += 15;
+            aiY += 10;
         }
     } else if (ballX <= 500 && ballX > 100) {
         if (middlePaddel - middleBall > 100) {
@@ -148,4 +151,12 @@ const game = () => {
     return;
 }
 
-const play = setInterval(game, 10);
+let play = setInterval(game, 10);
+
+btn.addEventListener('click', function() {
+    clearInterval(play);
+})
+
+btn1.addEventListener('click', function() {
+    play = setInterval(game, 10);
+})
