@@ -70,16 +70,12 @@ const ball = () => {
         fail();
     }
     if (ballX <= playerX + ballSize) {
-        if (ballY >= playerY && ballY <= playerY + paddelHeight) {
-            ballSpeedX = -ballSpeedX;
-        } else if (ballY + ballSize >= playerY && ballY + ballSize <= playerY + paddelHeight) {
+        if (ballY < (playerY + paddelHeight) && (ballY + ballSize) > playerY) {
             ballSpeedX = -ballSpeedX;
         }
     }
-    if (ballX >= aiX - paddelWidth) {
-        if (ballY >= aiY && ballY <= aiY + paddelHeight) {
-            ballSpeedX = -ballSpeedX;
-        } else if (ballY + ballSize >= aiY && ballY + ballSize <= aiY + paddelHeight) {
+    if (ballX + ballSize >= aiX) {
+        if ((ballY < (aiY + paddelHeight) && (ballY + ballSize) > aiY)) {
             ballSpeedX = -ballSpeedX;
         }
     }
@@ -148,11 +144,10 @@ const fail = () => {
 
 const game = () => {
     table();
-    ball();
     player();
     ai();
     aiPosition();
-    return;
+    ball();
 }
 
 let play = setInterval(game, 10);
