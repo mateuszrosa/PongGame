@@ -23,8 +23,8 @@ let aiY = 200;
 const lineWidth = 6;
 const lineHeight = 16;
 
-let ballSpeedX = 3;
-let ballSpeedY = 3;
+let ballSpeedX = 1;
+let ballSpeedY = 1;
 
 let numPlayer = 0;
 let numAI = 0;
@@ -69,9 +69,19 @@ const ball = () => {
     if (ballX >= cw - ballSize || ballX <= 0) {
         fail();
     }
-    if (ballX <= playerX + paddelWidth) {
-        if (ballY < (playerY + paddelHeight) && (ballY + ballSize) > playerY) {
+
+    if (ballX + ballSize >= playerX && ballX <= playerX + paddelWidth && ballY < (playerY + paddelHeight) && (ballY + ballSize) > playerY) {
+        ballSpeedX = -ballSpeedX;
+        console.log(`pierwsza`);
+    } else if (ballX <= (playerX + paddelWidth) && (ballX + ballSize) >= playerX) {
+        if (ballY + ballSize === playerY) {
+            ballSpeedY = -ballSpeedY;
             ballSpeedX = -ballSpeedX;
+            console.log('work');
+        } else if (ballY === playerY + paddelHeight) {
+            ballSpeedY = -ballSpeedY;
+            ballSpeedX = -ballSpeedX;
+            console.log('tri');
         }
     }
     if (ballX + ballSize >= aiX) {
@@ -79,9 +89,6 @@ const ball = () => {
             ballSpeedX = -ballSpeedX;
         }
     }
-    // if(ballX + ballSize <= playerX) {
-    //     if(ballY <= playerY)
-    // }
 }
 
 topCanvas = canvas.offsetTop;
