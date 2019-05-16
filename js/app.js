@@ -69,7 +69,7 @@ const ball = () => {
     if (ballX >= cw - ballSize || ballX <= 0) {
         fail();
     }
-    if (ballX <= playerX + ballSize) {
+    if (ballX <= playerX + paddelWidth) {
         if (ballY < (playerY + paddelHeight) && (ballY + ballSize) > playerY) {
             ballSpeedX = -ballSpeedX;
         }
@@ -79,6 +79,9 @@ const ball = () => {
             ballSpeedX = -ballSpeedX;
         }
     }
+    // if(ballX + ballSize <= playerX) {
+    //     if(ballY <= playerY)
+    // }
 }
 
 topCanvas = canvas.offsetTop;
