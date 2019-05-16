@@ -72,16 +72,13 @@ const ball = () => {
 
     if (ballX + ballSize >= playerX && ballX <= playerX + paddelWidth && ballY < (playerY + paddelHeight) && (ballY + ballSize) > playerY) {
         ballSpeedX = -ballSpeedX;
-        console.log(`pierwsza`);
     } else if (ballX <= (playerX + paddelWidth) && (ballX + ballSize) >= playerX) {
         if (ballY + ballSize === playerY) {
             ballSpeedY = -ballSpeedY;
             ballSpeedX = -ballSpeedX;
-            console.log('work');
         } else if (ballY === playerY + paddelHeight) {
             ballSpeedY = -ballSpeedY;
             ballSpeedX = -ballSpeedX;
-            console.log('tri');
         }
     }
     if (ballX + ballSize >= aiX) {
