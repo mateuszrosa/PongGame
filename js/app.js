@@ -23,8 +23,8 @@ let aiY = 200;
 const lineWidth = 6;
 const lineHeight = 16;
 
-let ballSpeedX = 1;
-let ballSpeedY = 1;
+let ballSpeedX = 3;
+let ballSpeedY = 3;
 
 let numPlayer = 0;
 let numAI = 0;
