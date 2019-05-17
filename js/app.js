@@ -81,8 +81,17 @@ const ball = () => {
             ballSpeedX = -ballSpeedX;
         }
     }
+
     if (ballX + ballSize >= aiX && (ballY < (aiY + paddelHeight) && (ballY + ballSize) > aiY)) {
         ballSpeedX = -ballSpeedX;
+    } else if (ballX + ballSize <= (aiX) && (ballX) >= aiX + paddelWidth) {
+        if (ballY + ballSize === aiY) {
+            ballSpeedY = -ballSpeedY;
+            ballSpeedX = -ballSpeedX;
+        } else if (ballY === aiY + paddelHeight) {
+            ballSpeedY = -ballSpeedY;
+            ballSpeedX = -ballSpeedX;
+        }
     }
 }
 
