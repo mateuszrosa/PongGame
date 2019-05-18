@@ -29,14 +29,18 @@ let ballSpeedY = 3;
 let numPlayer = 0;
 let numAI = 0;
 
+let start = 0;
+
 const spanPlayer = document.querySelector('span.player');
 const spanAI = document.querySelector('span.ai');
 spanPlayer.textContent = numPlayer;
 spanAI.textContent = numAI;
 
-const btn = document.querySelector("button");
-const btn1 = document.querySelector("body > div > button:nth-child(2)");
-console.log(btn, btn1);
+const btns = document.querySelector('.buttons');
+const btnStart = document.querySelector("body > div > button:nth-child(1)");
+const btnPause = document.querySelector("body > div > button:nth-child(2)")
+const btnReplay = document.querySelector("body > div > button:nth-child(3)");
+const btnReset = document.querySelector("body > div > button:nth-child(4)")
 
 const player = () => {
     ctx.fillStyle = 'green';
@@ -158,6 +162,10 @@ const fail = () => {
 }
 
 const game = () => {
+    start++;
+    if (start === 1) {
+        btns.style.display = "block";
+    }
     table();
     player();
     ai();
@@ -167,10 +175,10 @@ const game = () => {
 
 let play = setInterval(game, 10);
 
-btn.addEventListener('click', function() {
+btnPause.addEventListener('click', function() {
     clearInterval(play);
 })
 
-btn1.addEventListener('click', function() {
+btnReplay.addEventListener('click', function() {
     play = setInterval(game, 10);
 })
