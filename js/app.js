@@ -174,32 +174,18 @@ const game = () => {
     ball();
 }
 
-let play = setInterval(game);
-clearInterval(play);
+let play;
 
 buttons.forEach(button => {
     button.addEventListener('click', function() {
         if (this.dataset.name === "start") {
             play = setInterval(game, 10);
         } else if (this.dataset.name === "pause") {
-            console.log(play);
+            clearInterval(play);
         } else if (this.dataset.name === "replay") {
-            console.log('replay');
+            play = setInterval(game, 10);
         } else {
             console.log('reset');
         }
     })
 })
-
-
-// btnStart.addEventListener('click', function() {
-//     let play = setInterval(game, 10);
-// })
-
-// btnPause.addEventListener('click', function() {
-//     clearInterval(play);
-// })
-
-// btnReplay.addEventListener('click', function() {
-//     play = setInterval(game, 10);
-// })
