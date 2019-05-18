@@ -35,7 +35,8 @@ spanPlayer.textContent = numPlayer;
 spanAI.textContent = numAI;
 
 const btn = document.querySelector("button");
-const btn1 = document.querySelector("body > button:nth-child(4)")
+const btn1 = document.querySelector("body > div > button:nth-child(2)");
+console.log(btn, btn1);
 
 const player = () => {
     ctx.fillStyle = 'green';
@@ -168,12 +169,8 @@ let play = setInterval(game, 10);
 
 btn.addEventListener('click', function() {
     clearInterval(play);
-    btn.style.display = "none";
-    btn1.style.display = 'block';
 })
 
 btn1.addEventListener('click', function() {
     play = setInterval(game, 10);
-    btn1.style.display = 'none';
-    btn.style.display = 'block';
 })
