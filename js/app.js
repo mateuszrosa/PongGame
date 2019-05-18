@@ -37,6 +37,7 @@ spanPlayer.textContent = numPlayer;
 spanAI.textContent = numAI;
 
 const btns = document.querySelector('.buttons');
+const buttons = document.querySelectorAll('button');;
 const btnStart = document.querySelector("body > div > button:nth-child(1)");
 const btnPause = document.querySelector("body > div > button:nth-child(2)")
 const btnReplay = document.querySelector("body > div > button:nth-child(3)");
@@ -161,11 +162,11 @@ const fail = () => {
     }, 500)
 }
 
+table();
+player();
+ai();
+
 const game = () => {
-    start++;
-    if (start === 1) {
-        btns.style.display = "block";
-    }
     table();
     player();
     ai();
@@ -173,12 +174,32 @@ const game = () => {
     ball();
 }
 
-let play = setInterval(game, 10);
+let play = setInterval(game);
+clearInterval(play);
 
-btnPause.addEventListener('click', function() {
-    clearInterval(play);
+buttons.forEach(button => {
+    button.addEventListener('click', function() {
+        if (this.dataset.name === "start") {
+            play = setInterval(game, 10);
+        } else if (this.dataset.name === "pause") {
+            console.log(play);
+        } else if (this.dataset.name === "replay") {
+            console.log('replay');
+        } else {
+            console.log('reset');
+        }
+    })
 })
 
-btnReplay.addEventListener('click', function() {
-    play = setInterval(game, 10);
-})
+
+// btnStart.addEventListener('click', function() {
+//     let play = setInterval(game, 10);
+// })
+
+// btnPause.addEventListener('click', function() {
+//     clearInterval(play);
+// })
+
+// btnReplay.addEventListener('click', function() {
+//     play = setInterval(game, 10);
+// })

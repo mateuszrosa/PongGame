@@ -12,7 +12,3 @@ body {
 canvas {
     border: 4px solid white;
 }
-
-.buttons {
-    display: none;
-}
