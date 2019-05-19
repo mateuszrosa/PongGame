@@ -39,9 +39,8 @@ spanAI.textContent = numAI;
 const btns = document.querySelector('.buttons');
 const buttons = document.querySelectorAll('button');;
 const btnStart = document.querySelector("body > div > button:nth-child(1)");
-const btnPause = document.querySelector("body > div > button:nth-child(2)")
-const btnReplay = document.querySelector("body > div > button:nth-child(3)");
-const btnReset = document.querySelector("body > div > button:nth-child(4)")
+const btnReplay = document.querySelector("body > div > button:nth-child(2)");
+const btnReset = document.querySelector("body > div > button:nth-child(3)")
 
 const player = () => {
     ctx.fillStyle = 'green';
