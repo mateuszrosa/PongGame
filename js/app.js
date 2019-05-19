@@ -187,7 +187,7 @@ buttons.forEach(button => {
         } else if (this.dataset.name === "replay") {
             play = setInterval(game, 10);
         } else {
-            console.log('reset');
+            btnStart.textContent = "Start";
         }
     })
 })
