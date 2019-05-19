@@ -178,8 +178,12 @@ let play;
 buttons.forEach(button => {
     button.addEventListener('click', function() {
         if (this.dataset.name === "start") {
-            play = setInterval(game, 10);
-            this.textContent = "Pause";
+            if (this.textContent === "Start") {
+                play = setInterval(game, 10);
+                this.textContent = "Pause";
+            } else {
+                clearInterval(play);
+            }
         } else if (this.dataset.name === "replay") {
             play = setInterval(game, 10);
         } else {
