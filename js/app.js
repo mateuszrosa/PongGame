@@ -179,8 +179,7 @@ buttons.forEach(button => {
     button.addEventListener('click', function() {
         if (this.dataset.name === "start") {
             play = setInterval(game, 10);
-        } else if (this.dataset.name === "pause") {
-            clearInterval(play);
+            this.textContent = "Pause";
         } else if (this.dataset.name === "replay") {
             play = setInterval(game, 10);
         } else {
