@@ -173,6 +173,12 @@ const game = () => {
     ball();
 }
 
+const reset = () => {
+    clearInterval(play);
+    spanAI.textContent = `${numAI=0}`;
+    spanPlayer.textContent = `${numPlayer=0}`;
+}
+
 let play;
 
 buttons.forEach(button => {
@@ -187,7 +193,7 @@ buttons.forEach(button => {
         } else if (this.dataset.name === "replay") {
             play = setInterval(game, 10);
         } else {
-            btnStart.textContent = "Start";
+            reset();
         }
     })
 })
