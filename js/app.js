@@ -177,6 +177,9 @@ const reset = () => {
     clearInterval(play);
     spanAI.textContent = `${numAI=0}`;
     spanPlayer.textContent = `${numPlayer=0}`;
+    ballX = cw / 2 - ballSize / 2;
+    ballY = ch / 2 - ballSize / 2;
+    ctx.fillRect(ballX, ballY, ballSize, ballSize);
 }
 
 let play;
