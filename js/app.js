@@ -199,6 +199,7 @@ buttons.forEach(button => {
             play = setInterval(game, 10);
         } else {
             reset();
+            btnStart.textContent = "Start";
         }
     })
 })
