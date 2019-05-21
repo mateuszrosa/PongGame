@@ -161,8 +161,6 @@ const fail = () => {
         }
         ballX = cw / 2 - ballSize / 2;
         ballY = ch / 2 - ballSize / 2;
-        playerY = 200;
-        aiY = 200;
     }, 500)
 }
 
