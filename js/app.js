@@ -151,6 +151,11 @@ const fail = () => {
     setTimeout(function() {
         if (ballX <= 0) {
             spanAI.textContent = `${++numAI}`;
+            if (numAI >= 10) {
+                clearInterval(play);
+                reset();
+                alert("You lose! Wanna play again? Click Start");
+            }
         } else if (ballX >= cw - ballSize) {
             spanPlayer.textContent = `${++numPlayer}`;
         }
@@ -182,6 +187,7 @@ const reset = () => {
     player();
     ai();
     ball();
+    btnStart.textContent = "Start";
 }
 
 let play;
@@ -199,7 +205,6 @@ buttons.forEach(button => {
             play = setInterval(game, 10);
         } else {
             reset();
-            btnStart.textContent = "Start";
         }
     })
 })
