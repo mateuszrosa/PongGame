@@ -48,7 +48,7 @@ const player = () => {
 }
 
 const ai = () => {
-    ctx.fillStyle = 'green';
+    ctx.fillStyle = 'red';
     ctx.fillRect(aiX, aiY, paddelWidth, paddelHeight);
 }
 
