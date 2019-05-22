@@ -155,6 +155,10 @@ const fail = () => {
                 clearInterval(play);
                 reset();
                 alert("You lose! Wanna play again? Click Start");
+            } else if (numPlayer >= 10) {
+                clearInterval(play);
+                reset();
+                alert("You win! Wanna play again? Click Start");
             }
         } else if (ballX >= cw - ballSize) {
             spanPlayer.textContent = `${++numPlayer}`;
