@@ -152,6 +152,8 @@ const fail = () => {
     setTimeout(function() {
         if (ballX <= 0) {
             spanAI.textContent = `${++numAI}`;
+            ballSpeedX = 3;
+            ballSpeedY = 3;
             if (numAI >= 10) {
                 clearInterval(play);
                 reset();
@@ -159,6 +161,8 @@ const fail = () => {
             }
         } else if (ballX >= cw - ballSize) {
             spanPlayer.textContent = `${++numPlayer}`;
+            ballSpeedX = 3;
+            ballSpeedY = 3;
             if (numPlayer >= 10) {
                 clearInterval(play);
                 reset();
