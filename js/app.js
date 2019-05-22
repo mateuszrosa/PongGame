@@ -156,13 +156,14 @@ const fail = () => {
                 clearInterval(play);
                 reset();
                 alert("You lose! Wanna play again? Click Start");
-            } else if (numPlayer >= 10) {
+            }
+        } else if (ballX >= cw - ballSize) {
+            spanPlayer.textContent = `${++numPlayer}`;
+            if (numPlayer >= 10) {
                 clearInterval(play);
                 reset();
                 alert("You win! Wanna play again? Click Start");
             }
-        } else if (ballX >= cw - ballSize) {
-            spanPlayer.textContent = `${++numPlayer}`;
         }
         ballX = cw / 2 - ballSize / 2;
         ballY = ch / 2 - ballSize / 2;
