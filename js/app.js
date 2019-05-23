@@ -204,21 +204,17 @@ let play;
 
 buttons.forEach(button => {
     button.addEventListener('click', function() {
-        if (this.textContent === 'Pause') {
-            this.textContent = 'Paused';
-        }
-        if (this.dataset.name === "start") {
-            if (this.textContent === "Start") {
-                play = setInterval(game, 10);
-                this.textContent = "Pause";
-            } else {
-                clearInterval(play);
-            }
-        } else if (this.dataset.name === "replay") {
-            btnStart.textContent = 'Pause';
+        if (this.textContent === 'Start') {
+            play = setInterval(game, 10);
+            this.textContent = "Pause";
+        } else if (this.textContent === "Pause") {
+            this.textContent = "Replay";
+            clearInterval(play);
+        } else if (this.textContent === "Replay") {
+            this.textContent = "Pause";
             play = setInterval(game, 10);
         } else {
-            reset();
+            reset()
         }
     })
 })
