@@ -200,6 +200,7 @@ const reset = () => {
     btnReset.style.display = "none";
     btnStart.style.width = "100%";
     btnStart.style.borderRight = "4px solid black";
+    clearInterval(play);
 }
 
 let play;
