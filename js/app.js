@@ -148,7 +148,7 @@ const speedUp = () => {
 }
 
 const fail = () => {
-    setTimeout(function() {
+    setTimeout(function () {
         if (ballX <= 0) {
             spanAI.textContent = `${++numAI}`;
             ballSpeedX = 3;
@@ -186,8 +186,8 @@ const game = () => {
 }
 
 const reset = () => {
-    spanAI.textContent = `${numAI=0}`;
-    spanPlayer.textContent = `${numPlayer=0}`;
+    spanAI.textContent = `${numAI = 0}`;
+    spanPlayer.textContent = `${numPlayer = 0}`;
     ballX = cw / 2 - ballSize / 2;
     ballY = ch / 2 - ballSize / 2;
     playerY = 200;
@@ -206,7 +206,7 @@ const reset = () => {
 let play;
 
 buttons.forEach(button => {
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function () {
         if (this.textContent === 'Start') {
             play = setInterval(game, 10);
             this.textContent = "Pause";
