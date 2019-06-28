@@ -26,6 +26,7 @@ class PongGame {
         this.table();
         this.player();
         this.ai();
+        this.ball();
     }
     table = () => {
         this.ctx.fillStyle = "black";
@@ -42,6 +43,13 @@ class PongGame {
     ai = () => {
         this.ctx.fillStyle = 'red';
         this.ctx.fillRect(this.aiX, this.aiY, this.paddelWidth, this.paddelHeight);
+    }
+    ball = () => {
+        this.ctx.fillStyle = "white";
+        this.ctx.fillRect(this.ballX, this.ballY, this.ballSize, this.ballSize);
+
+        this.ballX += this.ballSpeedX;
+        this.ballY += this.ballSpeedY;
     }
 }
 
