@@ -35,8 +35,8 @@ class PongGame {
         }
     };
     player = () => {
-        this.ctx.fillStyle = 'white';
-        this.ctx.fillRect(this.splayerX, this.splayerY, this.spaddelWidth, this.spaddelHeight);
+        this.ctx.fillStyle = 'green';
+        this.ctx.fillRect(this.playerX, this.playerY, this.paddelWidth, this.paddelHeight);
     }
 }
 
