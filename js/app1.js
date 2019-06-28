@@ -22,6 +22,21 @@ class PongGame {
         this.numPlayer = 0;
         this.numAI = 0;
         this.start = 0;
+
+        this.table();
+        this.player();
+    }
+    table = () => {
+        this.ctx.fillStyle = "black";
+        this.ctx.fillRect(0, 0, this.cw, this.ch);
+        for (let linePosition = 20; linePosition < this.ch; linePosition += 30) {
+            this.ctx.fillStyle = "white";
+            this.ctx.fillRect(this.cw / 2 - this.lineWidth / 2, linePosition, this.lineWidth, this.lineHeight);
+        }
+    };
+    player = () => {
+        this.ctx.fillStyle = 'white';
+        this.ctx.fillRect(this.splayerX, this.splayerY, this.spaddelWidth, this.spaddelHeight);
     }
 }
 
