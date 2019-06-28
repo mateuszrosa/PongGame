@@ -22,11 +22,14 @@ class PongGame {
         this.numPlayer = 0;
         this.numAI = 0;
         this.start = 0;
+        this.topCanvas = this.canvas.offsetTop;
 
         this.table();
         this.player();
         this.ai();
         this.ball();
+
+        this.canvas.addEventListener('mousemove', this.playerPosition);
     }
     table = () => {
         this.ctx.fillStyle = "black";
@@ -50,6 +53,16 @@ class PongGame {
 
         this.ballX += this.ballSpeedX;
         this.ballY += this.ballSpeedY;
+    }
+    playerPosition = event => {
+        this.playerY = event.clientY - this.topCanvas - this.paddelHeight / 2;
+
+        if (this.playerY <= 0) {
+            this.playerY = 0;
+        }
+        if (this.playerY >= this.ch - this.paddelHeight) {
+            this.playerY = this.ch - this.paddelHeight;
+        }
     }
 }
 
