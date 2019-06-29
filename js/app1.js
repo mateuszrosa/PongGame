@@ -29,6 +29,13 @@ class PongGame {
         this.ai();
         this.ball();
 
+        setInterval(() => {
+            this.table();
+            this.player();
+            this.ai();
+            this.ball();
+        }, 10)
+
         this.canvas.addEventListener('mousemove', this.playerPosition);
     }
     table = () => {
