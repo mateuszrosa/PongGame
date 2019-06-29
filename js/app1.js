@@ -33,6 +33,7 @@ class PongGame {
             this.table();
             this.player();
             this.ai();
+            this.aiPosition();
             this.ball();
         }, 10)
 
@@ -69,6 +70,29 @@ class PongGame {
         }
         if (this.playerY >= this.ch - this.paddelHeight) {
             this.playerY = this.ch - this.paddelHeight;
+        }
+    }
+    aiPosition = () => {
+        const middleBall = this.ballY + this.ballSize / 2;
+        const middlePaddel = this.aiY + this.paddelHeight / 2;
+
+        if (this.ballX > 500) {
+            if (middlePaddel - middleBall > 200) {
+                this.aiY -= 20;
+            } else if (middlePaddel - middleBall > 50) {
+                this.aiY -= 10;
+            }
+            if (middlePaddel - middleBall < -200) {
+                this.aiY += 20;
+            } else if (middlePaddel - middleBall < -50) {
+                this.aiY += 10;
+            }
+        } else if (this.ballX <= 500 && this.ballX > 100) {
+            if (middlePaddel - middleBall > 100) {
+                this.aiY -= 3;
+            } else if (middlePaddel - middleBall < -100) {
+                this.aiY += 3;
+            }
         }
     }
 }
