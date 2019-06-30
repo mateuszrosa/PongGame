@@ -35,7 +35,6 @@ class PongGame {
             this.ai();
             this.aiPosition();
             this.ball();
-            // this.speedUp();
         }, 10)
 
         this.canvas.addEventListener('mousemove', this.playerPosition);
@@ -65,10 +64,21 @@ class PongGame {
 
         if (this.ballY >= this.ch - this.ballSize || this.ballY <= 0) {
             this.ballSpeedY = -this.ballSpeedY;
-            // this.speedUp();
         }
         if (this.ballX >= this.cw - this.ballSize || this.ballX <= 0) {
             return
+        }
+
+        if (this.ballX + this.ballSize >= this.playerX && this.ballX <= this.playerX + this.paddelWidth && this.ballY < (this.playerY + this.paddelHeight) && (this.ballY + this.ballSize) > this.playerY) {
+            this.ballSpeedX = -this.ballSpeedX;
+        } else if (this.ballX <= (this.playerX + this.paddelWidth) && (this.ballX + this.ballSize) >= this.playerX) {
+            if (this.ballY + this.ballSize === this.playerY) {
+                this.ballSpeedY = -this.ballSpeedY;
+                this.ballSpeedX = -this.ballSpeedX;
+            } else if (this.ballY === this.playerY + this.paddelHeight) {
+                this.ballSpeedY = -this.ballSpeedY;
+                this.ballSpeedX = -this.ballSpeedX;
+            }
         }
     }
     playerPosition = event => {
