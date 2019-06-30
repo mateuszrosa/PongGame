@@ -80,6 +80,18 @@ class PongGame {
                 this.ballSpeedX = -this.ballSpeedX;
             }
         }
+
+        if (this.ballX + this.ballSize >= this.aiX && (this.ballY < (this.aiY + this.paddelHeight) && (this.ballY + this.ballSize) > this.aiY)) {
+            this.ballSpeedX = -this.ballSpeedX;
+        } else if (this.ballX + this.ballSize <= (this.aiX) && (this.ballX) >= this.aiX + this.paddelWidth) {
+            if (this.ballY + this.ballSize === this.aiY) {
+                this.ballSpeedY = -this.ballSpeedY;
+                this.ballSpeedX = -this.ballSpeedX;
+            } else if (this.ballY === this.aiY + this.paddelHeight) {
+                this.ballSpeedY = -this.ballSpeedY;
+                this.ballSpeedX = -this.ballSpeedX;
+            }
+        }
     }
     playerPosition = event => {
         this.playerY = event.clientY - this.topCanvas - this.paddelHeight / 2;
