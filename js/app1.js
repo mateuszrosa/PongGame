@@ -35,8 +35,7 @@ class PongGame {
             this.ai();
             this.aiPosition();
             this.ball();
-            this.speedUp();
-            console.log(this.aiX, this.aiY);
+            // this.speedUp();
         }, 10)
 
         this.canvas.addEventListener('mousemove', this.playerPosition);
@@ -63,6 +62,14 @@ class PongGame {
 
         this.ballX += this.ballSpeedX;
         this.ballY += this.ballSpeedY;
+
+        if (this.ballY >= this.ch - this.ballSize || this.ballY <= 0) {
+            this.ballSpeedY = -this.ballSpeedY;
+            // this.speedUp();
+        }
+        if (this.ballX >= this.cw - this.ballSize || this.ballX <= 0) {
+            return
+        }
     }
     playerPosition = event => {
         this.playerY = event.clientY - this.topCanvas - this.paddelHeight / 2;
