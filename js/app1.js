@@ -23,11 +23,16 @@ class PongGame {
         this.numAI = 0;
         this.start = 0;
         this.topCanvas = this.canvas.offsetTop;
-
         this.spanPlayer = document.querySelector('span.player');
         this.spanAI = document.querySelector('span.ai');
         this.spanPlayer.textContent = this.numPlayer;
         this.spanAI.textContent = this.numAI;
+        this.play;
+        this.btnStart.textContent = "Start";
+        this.btnReset.style.display = "none";
+        this.btnStart.style.width = "100%";
+        this.btnStart.style.borderRight = "4px solid black";
+        clearInterval(this.play);
 
         this.table();
         this.player();
