@@ -24,6 +24,11 @@ class PongGame {
         this.start = 0;
         this.topCanvas = this.canvas.offsetTop;
 
+        this.spanPlayer = document.querySelector('span.player');
+        this.spanAI = document.querySelector('span.ai');
+        this.spanPlayer.textContent = this.numPlayer;
+        this.spanAI.textContent = this.numAI;
+
         this.table();
         this.player();
         this.ai();
@@ -66,7 +71,7 @@ class PongGame {
             this.ballSpeedY = -this.ballSpeedY;
         }
         if (this.ballX >= this.cw - this.ballSize || this.ballX <= 0) {
-            return
+            this.fail();
         }
 
         if (this.ballX + this.ballSize >= this.playerX && this.ballX <= this.playerX + this.paddelWidth && this.ballY < (this.playerY + this.paddelHeight) && (this.ballY + this.ballSize) > this.playerY) {
