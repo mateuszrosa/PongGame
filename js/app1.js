@@ -28,11 +28,10 @@ class PongGame {
         this.spanPlayer.textContent = this.numPlayer;
         this.spanAI.textContent = this.numAI;
         this.play;
-        this.btnStart.textContent = "Start";
-        this.btnReset.style.display = "none";
-        this.btnStart.style.width = "100%";
-        this.btnStart.style.borderRight = "4px solid black";
-        clearInterval(this.play);
+        this.btns = document.querySelector('.buttons');
+        this.buttons = document.querySelectorAll('button');;
+        this.btnStart = document.querySelector("body > div > button:nth-child(1)");
+        this.btnReset = document.querySelector("body > div > button:nth-child(2)");
 
         this.table();
         this.player();
