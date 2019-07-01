@@ -133,6 +133,31 @@ class PongGame {
             this.ballSpeedY -= .2;
         }
     }
+    fail = () => {
+        setTimeout(function () {
+            if (this.ballX <= 0) {
+                this.spanAI.textContent = `${++this.numAI}`;
+                this.ballSpeedX = 3;
+                this.ballSpeedY = 3;
+                if (this.numAI >= 10) {
+                    clearInterval(this.play);
+                    this.reset();
+                    alert("You lose! Wanna play again? Click Start");
+                }
+            } else if (this.ballX >= this.cw - this.ballSize) {
+                this.spanPlayer.textContent = `${++this.numPlayer}`;
+                this.ballSpeedX = 3;
+                this.ballSpeedY = 3;
+                if (this.numPlayer >= 10) {
+                    clearInterval(this.play);
+                    this.reset();
+                    alert("You win! Wanna play again? Click Start");
+                }
+            }
+            this.ballX = this.cw / 2 - this.ballSize / 2;
+            this.ballY = this.ch / 2 - this.ballSize / 2;
+        }, 500)
+    }
 }
 
 const pong = new PongGame();
