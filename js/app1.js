@@ -39,6 +39,28 @@ class PongGame {
         this.ball();
 
         this.canvas.addEventListener('mousemove', this.playerPosition);
+        this.buttons.forEach(button => {
+            button.addEventListener('click', e => {
+                if (e.target.textContent === 'Start') {
+                    this.play = setInterval(this.game, 10);
+                    e.target.textContent = "Pause";
+                    this.btnReset.style.display = "block";
+                    this.btnStart.style.width = "50%";
+                    this.btnReset.style.width = "50%"
+                    this.btnStart.style.borderRight = "2px solid black";
+                } else if (e.target.textContent === "Pause") {
+                    e.target.textContent = "Replay";
+                    clearInterval(this.play);
+                } else if (e.target.textContent === "Replay") {
+                    e.target.textContent = "Pause";
+                    play = setInterval(this.game, 10);
+                } else {
+                    this.reset()
+                }
+            })
+        })
+
+
     }
     table = () => {
         this.ctx.fillStyle = "black";
