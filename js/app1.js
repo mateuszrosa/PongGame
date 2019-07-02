@@ -53,7 +53,7 @@ class PongGame {
                     clearInterval(this.play);
                 } else if (e.target.textContent === "Replay") {
                     e.target.textContent = "Pause";
-                    play = setInterval(this.game, 10);
+                    this.play = setInterval(this.game, 10);
                 } else {
                     this.reset()
                 }
@@ -180,6 +180,23 @@ class PongGame {
             this.ballX = this.cw / 2 - this.ballSize / 2;
             this.ballY = this.ch / 2 - this.ballSize / 2;
         }, 500)
+    }
+    reset = () => {
+        this.spanAI.textContent = `${this.numAI = 0}`;
+        this.spanPlayer.textContent = `${this.numPlayer = 0}`;
+        this.ballX = this.cw / 2 - this.ballSize / 2;
+        this.ballY = this.ch / 2 - this.ballSize / 2;
+        this.playerY = 200;
+        this.aiY = 200;
+        this.table();
+        this.player();
+        this.ai();
+        this.ball();
+        this.btnStart.textContent = "Start";
+        this.btnReset.style.display = "none";
+        this.btnStart.style.width = "100%";
+        this.btnStart.style.borderRight = "4px solid black";
+        clearInterval(this.play);
     }
     game = () => {
         this.table();
