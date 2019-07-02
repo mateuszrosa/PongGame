@@ -157,7 +157,7 @@ class PongGame {
         }
     }
     fail = () => {
-        setTimeout(function () {
+        setTimeout(() => {
             if (this.ballX <= 0) {
                 this.spanAI.textContent = `${++this.numAI}`;
                 this.ballSpeedX = 3;
