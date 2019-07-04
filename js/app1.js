@@ -87,6 +87,8 @@ class PongGame {
 
         if (this.ballY >= this.ch - this.ballSize || this.ballY <= 0) {
             this.ballSpeedY = -this.ballSpeedY;
+            this.speedUp();
+            console.log('speedup');
         }
         if (this.ballX >= this.cw - this.ballSize || this.ballX <= 0) {
             this.fail();

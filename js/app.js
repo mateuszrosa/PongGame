@@ -69,7 +69,6 @@ const ball = () => {
 
     if (ballY >= ch - ballSize || ballY <= 0) {
         ballSpeedY = -ballSpeedY;
-        // speedUp();
     }
     if (ballX >= cw - ballSize || ballX <= 0) {
         fail();
