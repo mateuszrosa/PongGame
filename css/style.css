@@ -17,6 +17,9 @@ body {
 
 h1 {
     font-size: 50px;
+    position: absolute;
+    top: 150px;
+    display: none;
 }
 
 canvas {
