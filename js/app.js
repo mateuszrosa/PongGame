@@ -39,7 +39,8 @@ spanAI.textContent = numAI;
 const btns = document.querySelector('.buttons');
 const buttons = document.querySelectorAll('button');;
 const btnStart = document.querySelector("body > div > button:nth-child(1)");
-const btnReset = document.querySelector("body > div > button:nth-child(2)")
+const btnReset = document.querySelector("body > div > button:nth-child(2)");
+const h1 = document.querySelector('h1');
 
 const player = () => {
     ctx.fillStyle = 'green';
@@ -185,6 +186,7 @@ const game = () => {
 }
 
 const reset = () => {
+    h1.style.display = 'none';
     spanAI.textContent = `${numAI = 0}`;
     spanPlayer.textContent = `${numPlayer = 0}`;
     ballX = cw / 2 - ballSize / 2;
@@ -207,6 +209,7 @@ let play;
 buttons.forEach(button => {
     button.addEventListener('click', function () {
         if (this.textContent === 'Start') {
+            h1.style.display = "block";
             play = setInterval(game, 10);
             this.textContent = "Pause";
             btnReset.style.display = "block";
