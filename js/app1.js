@@ -25,6 +25,7 @@ class PongGame {
         this.topCanvas = this.canvas.offsetTop;
         this.spanPlayer = document.querySelector('span.player');
         this.spanAI = document.querySelector('span.ai');
+        this.h1 = document.querySelector('h1');
         this.spanPlayer.textContent = this.numPlayer;
         this.spanAI.textContent = this.numAI;
         this.play;
@@ -42,6 +43,7 @@ class PongGame {
         this.buttons.forEach(button => {
             button.addEventListener('click', e => {
                 if (e.target.textContent === 'Start') {
+                    this.h1.style.display = 'block';
                     this.play = setInterval(this.game, 10);
                     e.target.textContent = "Pause";
                     this.btnReset.style.display = "block";
@@ -198,6 +200,7 @@ class PongGame {
         this.btnReset.style.display = "none";
         this.btnStart.style.width = "100%";
         this.btnStart.style.borderRight = "4px solid black";
+        this.h1.style.display = "none";
         clearInterval(this.play);
     }
     game = () => {
