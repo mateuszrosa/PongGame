@@ -25,7 +25,7 @@ class PongGame {
         this.topCanvas = this.canvas.offsetTop;
         this.spanPlayer = document.querySelector('span.player');
         this.spanAI = document.querySelector('span.ai');
-        this.h1 = document.querySelector('h1');
+        this.h1 = document.querySelector('h1.score');
         this.spanPlayer.textContent = this.numPlayer;
         this.spanAI.textContent = this.numAI;
         this.play;
@@ -201,6 +201,8 @@ class PongGame {
         this.btnStart.style.width = "100%";
         this.btnStart.style.borderRight = "4px solid black";
         this.h1.style.display = "none";
+        this.ballSpeedX = 3;
+        this.ballSpeedY = 3;
         clearInterval(this.play);
     }
     game = () => {
