@@ -40,7 +40,7 @@ const btns = document.querySelector('.buttons');
 const buttons = document.querySelectorAll('button');;
 const btnStart = document.querySelector("body > div > button:nth-child(1)");
 const btnReset = document.querySelector("body > div > button:nth-child(2)");
-const h1 = document.querySelector('h1');
+const h1 = document.querySelector('h1.score');
 
 const player = () => {
     ctx.fillStyle = 'green';
