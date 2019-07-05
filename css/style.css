@@ -48,6 +48,7 @@ canvas {
     font-weight: 800;
     transform: scale(1);
     transition: .2s;
+    font-family: 'Roboto', sans-serif;
 }
 
 button:nth-child(2) {
